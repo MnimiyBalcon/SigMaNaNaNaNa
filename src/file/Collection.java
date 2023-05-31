@@ -1,8 +1,7 @@
 package file;
 
+import DataBase.MainDataBase;
 import base.Vehicle;
-import com.google.gson.Gson;
-import com.google.gson.stream.MalformedJsonException;
 
 import java.io.*;
 import java.nio.file.Files;
@@ -33,7 +32,7 @@ public class Collection {
      * Метод? который отвечает за загрузку файла в коллекци.
      * @param fileName
      */
-    public static void toLoad(String fileName) {
+    /*public static void toLoad(String fileName) {
         InputStreamReader inputStreamReader = null;
         try {
             inputStreamReader = new InputStreamReader(new FileInputStream(fileName));
@@ -60,13 +59,12 @@ public class Collection {
                 }
             }
         }
-    }
+    }*/
     /**
      * Валидация? полей транспортного средства для чтения из файла
-     * @param vehicle транспортное средство для проверки
      * @return результат валидации
      */
-    private static boolean validate(Vehicle vehicle) {
+    /*private static boolean validate(Vehicle vehicle) {
         if(vehicle.getName().trim().isEmpty()) {
             return false;}
         if(vehicle.getCoordinates().getY() > 533){
@@ -84,10 +82,12 @@ public class Collection {
         if(vehicle.getEnginePower() <= 0 && vehicle.getEnginePower() == null){
             return false;}
         return true;
-    }
+    }*/
+
     /*public HashSet<Vehicle> getCollection() {
         return collection;
     }*/
+
     public  void print(){
         List<Vehicle> vehicleList = new ArrayList<Vehicle>(Collection.getInstance().getAll());
         Collections.sort(vehicleList);
@@ -115,7 +115,7 @@ public class Collection {
         Iterator<Vehicle> iterator = collection.iterator();
         while (iterator.hasNext()) {
             Vehicle vehicle = iterator.next();
-            if (vehicle.getCreator().equals(/*ИМЯ НЫНЕШНЕГО пользователя*/)) {
+            if (vehicle.getCreator().equals(MainDataBase.username)) {
                 iterator.remove(); // Удаляем объект из коллекции
             }
         }
@@ -132,9 +132,7 @@ public class Collection {
             vehicle.setId(id);
         }
     }
-    public void clear() {
-        collection.clear();
-    }
+
     static int generateId() {
         int id =  Collection.getInstance().getAll().stream()
                 .map(Vehicle::getId)

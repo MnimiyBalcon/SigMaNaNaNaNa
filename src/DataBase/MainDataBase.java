@@ -10,15 +10,17 @@ public class MainDataBase {
     /**
      * Поле, хранящее ссылку на объект класса Connection
      */
-    private static Connection connection;
+    public static Connection connection;
+    public static String username ="";
 
     //Класс Connection в Java используется для установления соединения с базами данных.
     /**
      * Метод, позволяющий установить соединение
      */
     private static void getConnection() {
+
         try {
-            connection = DriverManager.getConnection("", "", "");
+            connection = DriverManager.getConnection("jdbc:postgresql://db:5432/studs", "s368949", "W4B3WDUkXkwHmyuu");
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

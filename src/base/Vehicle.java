@@ -1,6 +1,5 @@
 package base;
 
-import com.google.gson.annotations.Expose;
 
 import java.util.Date;
 
@@ -8,21 +7,13 @@ public class Vehicle implements Comparable<Vehicle>{
     /**
      * Класс транспортного средства
      */
-    @Expose(serialize = false)
     private int id; //Поле не может быть null, Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
-    @Expose(serialize = true)
     private String name; //Поле не может быть null, Строка не может быть пустой
-    @Expose(serialize = true)
     private Coordinates coordinates; //Поле не может быть null
-    @Expose(serialize = true)
     private java.util.Date creationDate; //Поле не может быть null, Значение этого поля должно генерироваться автоматически
-    @Expose(serialize = true)
     private Float enginePower; //Поле не может быть null, Значение поля должно быть больше 0
-    @Expose(serialize = true)
     private Float capacity; //Поле может быть null, Значение поля должно быть больше 0
-    @Expose(serialize = true)
     private int fuelConsumption; //Значение поля должно быть больше 0
-    @Expose(serialize = true)
     private FuelType fuelType; //Поле не может быть null
 
     public String getCreator() {

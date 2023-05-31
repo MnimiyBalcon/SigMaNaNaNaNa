@@ -1,8 +1,6 @@
 package commands;
 
 import base.Vehicle;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import file.Collection;
 
 import java.io.*;
@@ -21,7 +19,7 @@ public class Save implements CommandBase {
      */
     @Override
     public String execute() throws IOException {
-        CommandHandler.commandHistory[CommandHandler.commandCounter % 9] = "save";
+        /*CommandHandler.commandHistory[CommandHandler.commandCounter % 9] = "save";
         CommandHandler.commandCounter++;
         Scanner scanner = new Scanner(System.in);
         System.out.println("Введите название файла");
@@ -48,7 +46,8 @@ public class Save implements CommandBase {
             }
             return "Коллекция сохранена";
         }
-        return "Невозможно записать коллекцию! Введите название команды";
+        return "Невозможно записать коллекцию! Введите название команды";*/
+        return null;
     }
     @Override
     public String getCommandName() {

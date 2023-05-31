@@ -25,8 +25,7 @@ public class SetCollection {
     public static void getVehicleFromDB() {
 
         try {
-
-            ResultSet rs = MainDataBase.requestSQLWith("SELECT * FROM Vehicle");
+            ResultSet rs = MainDataBase.requestSQLWith("SELECT * FROM Vehicle_Catalog");
             while (true) {
                 assert rs != null;
                 if (!rs.next()) break;
