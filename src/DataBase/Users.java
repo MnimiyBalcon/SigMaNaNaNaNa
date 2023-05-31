@@ -1,2 +1,4 @@
-package DataBase;public class Users {
+package DataBase;
+
+public class Users {
 }

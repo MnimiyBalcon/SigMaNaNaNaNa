@@ -25,7 +25,13 @@ public class Vehicle implements Comparable<Vehicle>{
     @Expose(serialize = true)
     private FuelType fuelType; //Поле не может быть null
 
-    public Vehicle(int id, String name, Coordinates coordinates, java.util.Date creationDate, Float enginePower, Float capacity, int fuelConsumption, FuelType fuelType) {
+    public String getCreator() {
+        return creator;
+    }
+
+    private String creator;
+
+    public Vehicle(int id, String name, Coordinates coordinates, java.util.Date creationDate, Float enginePower, Float capacity, int fuelConsumption, FuelType fuelType, String creator) {
         this.id = id;
         this.name = name;
         this.coordinates = coordinates;
@@ -34,6 +40,7 @@ public class Vehicle implements Comparable<Vehicle>{
         this.capacity = capacity;
         this.fuelConsumption = fuelConsumption;
         this.fuelType = fuelType;
+        this.creator = creator;
     }
 
     public Vehicle() {

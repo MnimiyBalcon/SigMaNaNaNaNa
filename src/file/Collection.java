@@ -13,8 +13,11 @@ import java.util.stream.Collectors;
 
 public class Collection {
 
-    private HashSet<Vehicle> collection;
+    private static HashSet<Vehicle> collection = new HashSet<>();
     private static Collection INSTANCE;
+    public static HashSet<Vehicle> getVehicle(){
+        return collection;
+    }
 
     public static Collection getInstance() {
         if (INSTANCE == null) {
@@ -107,6 +110,16 @@ public class Collection {
         Vehicle object = CommandLine.readVehicle();
         object.setId(x);
         collection.add(object);
+    }
+    public void clear() {
+        Iterator<Vehicle> iterator = collection.iterator();
+        while (iterator.hasNext()) {
+            Vehicle vehicle = iterator.next();
+            if (vehicle.getCreator().equals(/*ИМЯ НЫНЕШНЕГО пользователя*/)) {
+                iterator.remove(); // Удаляем объект из коллекции
+            }
+        }
+        System.out.println("Успешно");
     }
     public void removeById (int x) {
         TreeSet<Integer> idCounter = new TreeSet<>();
