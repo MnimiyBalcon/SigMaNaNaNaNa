@@ -1,0 +1,45 @@
+@startuml
+class base.Vehicle {
+- int id
+- String name
+- Coordinates coordinates
+- java.util.Date creationDate
+- Float enginePower
+- Float capacity
+- int fuelConsumption
+- FuelType fuelType
++ int getId()
++ String getName()
++ Coordinates getCoordinates()
++ java.util.Date getCreationDate()
++ Float getEnginePower()
++ Float getCapacity()
++ long getFuelConsumption()
++ FuelType getFuelType()
++ void setId(int)
++ void setName(String)
++ void setCoordinates(Coordinates)
++ void setCreationDate(java.util.Date)
++ void setEnginePower(Float)
++ void setCapacity(Float)
++ void setFuelConsumption(int)
++ void setFuelType(FuelType)
++ String toString()
+}
+class base.Coordinates {
+- double x
+- Integer y
++ double getX()
++ Integer getY()
++ String toString()
+}
+enum base.FuelType {
++  GASOLINE
++  ELECTRICITY
++  ALCOHOL
++  PLASMA
++  ANTIMATTER
+~ String name
++ String getName()
+}
+@enduml

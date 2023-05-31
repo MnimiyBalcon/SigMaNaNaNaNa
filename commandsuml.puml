@@ -1,0 +1,97 @@
+@startuml
+class commands.RemoveById {
++ String execute()
++ String getCommandName()
+}
+class commands.AddIfMin {
++ String execute()
++ String getCommandName()
+}
+class commands.Exit {
++ String execute()
++ String getCommandName()
+}
+class commands.Save {
++ String execute()
++ String getCommandName()
+- int generateId()
+}
+class commands.Info {
++ String execute()
++ String getCommandName()
+}
+class commands.FilterContainsName {
++ String execute()
++ String getCommandName()
+- {static} String getName(Scanner)
+}
+class commands.History {
++ String execute()
++ String getCommandName()
+}
+interface commands.CommandBase {
+~ String execute()
+~ String getCommandName()
+}
+class commands.UpdateId {
++ String execute()
++ String getCommandName()
+}
+class commands.Clear {
++ String execute()
++ String getCommandName()
+}
+class commands.ExecuteScriptFileName {
++ String execute()
++ String getCommandName()
+}
+class commands.Show {
++ String execute()
++ String getCommandName()
+}
+class commands.Add {
++ String execute()
++ String getCommandName()
+}
+class commands.CountByEnginePower {
++ String execute()
++ String getCommandName()
+- {static} Float getEnginePower(Scanner)
+}
+class commands.PrintUniqueFuelType {
++ String execute()
++ String getCommandName()
+}
+class commands.AddIfMax {
++ String execute()
++ String getCommandName()
+}
+class commands.Help {
++ String execute()
++ String getCommandName()
+}
+class commands.CommandHandler {
+- {static} List<CommandBase> commands
++ {static} int commandCounter
++ {static} String[] commandHistory
++ {static} String execute(String)
+}
+
+
+commands.CommandBase <|.. commands.RemoveById
+commands.CommandBase <|.. commands.AddIfMin
+commands.CommandBase <|.. commands.Exit
+commands.CommandBase <|.. commands.Save
+commands.CommandBase <|.. commands.Info
+commands.CommandBase <|.. commands.FilterContainsName
+commands.CommandBase <|.. commands.History
+commands.CommandBase <|.. commands.UpdateId
+commands.CommandBase <|.. commands.Clear
+commands.CommandBase <|.. commands.ExecuteScriptFileName
+commands.CommandBase <|.. commands.Show
+commands.CommandBase <|.. commands.Add
+commands.CommandBase <|.. commands.CountByEnginePower
+commands.CommandBase <|.. commands.PrintUniqueFuelType
+commands.CommandBase <|.. commands.AddIfMax
+commands.CommandBase <|.. commands.Help
+@enduml

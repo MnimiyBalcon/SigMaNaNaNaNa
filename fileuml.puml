@@ -1,0 +1,27 @@
+@startuml
+class file.CommandLine {
++ {static} Vehicle readVehicle()
+- {static} String getName(Scanner)
+- {static} double getX(Scanner)
+- {static} Integer getY(Scanner)
+- {static} Float getEnginePower(Scanner)
+- {static} Float getCapacity(Scanner)
+- {static} int getFuelConsumption(Scanner)
+- {static} FuelType getFuelType(Scanner)
+}
+class file.Collection {
+- HashSet<Vehicle> collection
+- {static} Collection INSTANCE
++ {static} Collection getInstance()
++ {static} void toLoad(String)
+- {static} boolean validate(Vehicle)
++ HashSet<Vehicle> getCollection()
++ void print()
++ HashSet<Vehicle> getAll()
++ {static} FileTime getCreationDate(String)
++ void updateId(int)
++ void removeById(int)
++ void clear()
+~ {static} int generateId()
+}
+@enduml
