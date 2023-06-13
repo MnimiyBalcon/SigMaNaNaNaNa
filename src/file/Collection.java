@@ -25,68 +25,9 @@ public class Collection {
         return INSTANCE;
     }
 
-    private Collection() {
+    public Collection() {
         this.collection = new HashSet<>();
     }
-    /**
-     * Метод? который отвечает за загрузку файла в коллекци.
-     * @param fileName
-     */
-    /*public static void toLoad(String fileName) {
-        InputStreamReader inputStreamReader = null;
-        try {
-            inputStreamReader = new InputStreamReader(new FileInputStream(fileName));
-            String json = new BufferedReader(inputStreamReader).lines().collect(Collectors.joining());
-            if(!json.isEmpty()) {
-                Gson gson = new Gson();
-                Vehicle[] vehicles = gson.fromJson(json, Vehicle[].class);
-                for (Vehicle vehicle : vehicles) {
-                    if (validate(vehicle)) {
-                        vehicle.setId(generateId());
-                        vehicle.setCreationDate(Date.from(Instant.now()));
-                        Collection.getInstance().getAll().add(vehicle);
-                    }
-                }
-            }
-        } catch (IOException e){
-            e.printStackTrace();
-        } finally {
-            if (inputStreamReader != null) {
-                try {
-                    inputStreamReader.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }*/
-    /**
-     * Валидация? полей транспортного средства для чтения из файла
-     * @return результат валидации
-     */
-    /*private static boolean validate(Vehicle vehicle) {
-        if(vehicle.getName().trim().isEmpty()) {
-            return false;}
-        if(vehicle.getCoordinates().getY() > 533){
-            return false;}
-        if(vehicle.getCoordinates() == null) {
-            return false;}
-        if(vehicle.getCreationDate() == null) {
-            return false;}
-        if(vehicle.getFuelType() == null) {
-            return false;}
-        if(vehicle.getFuelConsumption() <= 0){
-            return false;}
-        if(vehicle.getCapacity() <= 0 && vehicle.getCapacity() == null){
-            return false;}
-        if(vehicle.getEnginePower() <= 0 && vehicle.getEnginePower() == null){
-            return false;}
-        return true;
-    }*/
-
-    /*public HashSet<Vehicle> getCollection() {
-        return collection;
-    }*/
 
     public  void print(){
         List<Vehicle> vehicleList = new ArrayList<Vehicle>(Collection.getInstance().getAll());
@@ -106,25 +47,33 @@ public class Collection {
     }
 
     public void updateId (int x) {
-        collection.removeIf(e -> String.valueOf(e.getId()).equals(String.valueOf(x)));
+
+        collection.removeIf(e -> String.valueOf(e.getId()).equals(String.valueOf(x)) && e.getCreator().equals(MainDataBase.username));
         Vehicle object = CommandLine.readVehicle();
         object.setId(x);
         collection.add(object);
     }
-    public void clear() {
-        Iterator<Vehicle> iterator = collection.iterator();
-        while (iterator.hasNext()) {
-            Vehicle vehicle = iterator.next();
-            if (vehicle.getCreator().equals(MainDataBase.username)) {
-                iterator.remove(); // Удаляем объект из коллекции
-            }
+    public void votIdBad(LinkedList<Vehicle> v) {
+        collection.clear();
+        for (int i = 0; i < v.size(); i++) {
+            v.get(i).setId(i+1);
+            collection.add(v.get(i));
         }
+    }
+
+    public void clear() {
+        // Удаляем объект из коллекции
+        collection.removeIf(vehicle -> vehicle.getCreator().equals(MainDataBase.username));
+        LinkedList<Vehicle> linkedList = new LinkedList<>(collection);
+        linkedList.sort(new SigmaComparator());
+        votIdBad(linkedList);
         System.out.println("Успешно");
     }
     public void removeById (int x) {
         TreeSet<Integer> idCounter = new TreeSet<>();
-        Integer id = Integer.valueOf(1);
-        collection.removeIf(e -> String.valueOf(e.getId()).equals(String.valueOf(x)));
+        int id = 1;
+
+        collection.removeIf(e -> String.valueOf(e.getId()).equals(String.valueOf(x)) && e.getCreator().equals(MainDataBase.username));
         for (Vehicle vehicle : collection) {
             while (!idCounter.add(id)) {
                 id++;
@@ -139,6 +88,14 @@ public class Collection {
                 .max(Comparator.comparing(Integer::intValue))
                 .orElse(0);
         return ++id;
+    }
+
+    public void save() {
+        MainDataBase.requestSQLWithout("DELETE FROM Vehicle_Catalog;");
+        MainDataBase.requestSQLWithout("ALTER SEQUENCE VenicleIdSeq RESTART WITH 1;");
+        for (Vehicle vehicle : Collection.getInstance().getAll()) {
+            MainDataBase.requestSQLWithout("insert into Vehicle_Catalog (id, creator, creationDate, name, enginePower, capacity, fuelConsumption, fuelType,  x, y) values (nextval('VenicleIdSeq') , '" + vehicle.getCreator() + "', '" + vehicle.getCreationDate().toString() + "', '" + vehicle.getName() + "', '" + vehicle.getEnginePower() + "', '" + vehicle.getCapacity() + "', '" + vehicle.getFuelConsumption() + "', '" + vehicle.getFuelType() + "', '"+vehicle.getCoordinates().getX()+ "', '"+ vehicle.getCoordinates().getY() + "')");
+        }
     }
 
 }

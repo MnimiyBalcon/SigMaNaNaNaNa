@@ -1,5 +1,6 @@
 package file;
 
+import DataBase.MainDataBase;
 import base.Coordinates;
 import base.FuelType;
 import base.Vehicle;
@@ -31,6 +32,7 @@ public class CommandLine {
         vehicle.setFuelConsumption(getFuelConsumption(scanner));
         System.out.println("Введите тип топлива (GASOLINE, ELECTRICITY, ALCOHOL, PLASMA, ANTIMATTER):");
         vehicle.setFuelType(getFuelType(scanner));
+        vehicle.setCreator(MainDataBase.username);
         return vehicle;
     }
     /**

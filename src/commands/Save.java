@@ -1,5 +1,6 @@
 package commands;
 
+import DataBase.MainDataBase;
 import base.Vehicle;
 import file.Collection;
 
@@ -19,35 +20,10 @@ public class Save implements CommandBase {
      */
     @Override
     public String execute() throws IOException {
-        /*CommandHandler.commandHistory[CommandHandler.commandCounter % 9] = "save";
+        CommandHandler.commandHistory[CommandHandler.commandCounter % 9] = "save";
         CommandHandler.commandCounter++;
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Введите название файла");
-        String filename = scanner.nextLine();
-        File file = new File(filename);
-        if (!file.exists()) {
-            try {
-                file.createNewFile();
-            } catch (IOException e) {
-                return "Невозможно создать файл";
-            }
-        }
-        if(Files.isWritable(Path.of(filename))) {
-            try {
-                PrintWriter printWriter = new PrintWriter(file);
-                Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
-                List<Vehicle> vehicleList = new ArrayList<Vehicle>(Collection.getInstance().getAll());
-                Collections.sort(vehicleList);
-                printWriter.write(gson.toJson(vehicleList));
-                printWriter.flush();
-                printWriter.close();
-            } catch (FileNotFoundException e) {
-                return "Невозможно записать коллекцию!";
-            }
-            return "Коллекция сохранена";
-        }
-        return "Невозможно записать коллекцию! Введите название команды";*/
-        return null;
+        Collection.getInstance().save();
+        return "Коллекция сохранена в базе данных";
     }
     @Override
     public String getCommandName() {

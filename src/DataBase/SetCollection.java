@@ -6,13 +6,14 @@ import base.FuelType;
 import base.Vehicle;
 import file.Collection;
 
-import java.sql.Date;
+import java.util.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Timestamp;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
+import java.util.Locale;
 
 
 /**
@@ -35,22 +36,22 @@ public class SetCollection {
                 float capacity = rs.getLong("capacity");
                 String colorString = rs.getString("fuelType");
                 FuelType fuelType = FuelType.valueOf(colorString);
+
                 String stDate = rs.getString("creationDate");
-                String pattern = "yyyy-MM-dd";
 
-                SimpleDateFormat dateFormat = new SimpleDateFormat(pattern);
-                Date creationDate = null;
+                SimpleDateFormat format = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy", Locale.ENGLISH); // формат даты в строке
+                Date date = null; // создаем пустой объект типа Date
                 try {
-                    creationDate = (Date) dateFormat.parse(stDate);
-
+                    date = format.parse(stDate); // строку преобразуем в объект Date
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }
+
                 double x = rs.getDouble("x");
                 int y = rs.getInt("y");
-                float enginePower = rs.getFloat("size");
+                float enginePower = rs.getFloat("enginePower");
                 String creator = rs.getString("creator");
-                Collection.getVehicle().add(new Vehicle(id, name, new Coordinates(x, y), creationDate, enginePower, capacity, fuelConsumption, fuelType, creator));
+                Collection.getInstance().getAll().add(new Vehicle(id, name, new Coordinates(x, y), date, enginePower, capacity, fuelConsumption, fuelType, creator));
             }
             rs.close();
 

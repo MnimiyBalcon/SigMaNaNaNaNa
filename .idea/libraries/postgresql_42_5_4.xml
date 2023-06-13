@@ -1,7 +1,7 @@
 <component name="libraryTable">
-  <library name="laba5">
+  <library name="postgresql-42.5.4">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/out/artifacts/laba5_jar2/laba5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/postgresql-42.5.4.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

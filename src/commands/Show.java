@@ -28,7 +28,7 @@ public class Show implements CommandBase{
             System.out.println("Vehicle{id =" + vehicle.getId() + ", name =" + vehicle.getName() + ", coordinates ="
                     + vehicle.getCoordinates() + ", creationDate =" + vehicle.getCreationDate() + ", enginePower ="
                     + vehicle.getEnginePower() + ", capacity =" + vehicle.getCapacity() + ", fuelConsumption ="
-                    + vehicle.getFuelConsumption() + ", fuelType =" + vehicle.getFuelType() + "}" + '\n');
+                    + vehicle.getFuelConsumption() + ", fuelType =" + vehicle.getFuelType() + ", creator =" + vehicle.getCreator() + "}" + '\n');
         }
         return "";
     }

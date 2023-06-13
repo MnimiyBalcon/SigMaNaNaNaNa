@@ -1,5 +1,6 @@
 package commands;
 
+import DataBase.MainDataBase;
 import base.Vehicle;
 import file.Collection;
 
@@ -20,8 +21,11 @@ public class RemoveById implements CommandBase {
         int x = getId(scanner);
         for (Vehicle vehicle : Collection.getInstance().getAll()) {
             if (x == vehicle.getId()) {
-                Collection.getInstance().removeById(x);
-                return "Элемент удалён";
+                if (vehicle.getCreator().equals(MainDataBase.username)){
+                    Collection.getInstance().removeById(x);
+                    return "Элемент удалён";
+                }
+                else return "Ошибка! Этот элемент принадлежит другому пользователю!";
             }
         }
         return "Нет такого id!";

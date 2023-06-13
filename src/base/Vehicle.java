@@ -111,7 +111,12 @@ public class Vehicle implements Comparable<Vehicle>{
                 + ", capacity =" + capacity
                 + ", fuelConsumption =" + fuelConsumption
                 + ", fuelType =" + fuelType
+                + ", creator =" + creator
                 + '}';
+    }
+
+    public void setCreator(String creator) {
+        this.creator = creator;
     }
 
     @Override

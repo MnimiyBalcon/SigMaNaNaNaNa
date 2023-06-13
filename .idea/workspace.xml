@@ -1,20 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="laba5:jar2" />
+    </artifacts-to-build>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ce7c3472-bef3-4961-99cb-7d0f560bc7ee" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
+    <list default="true" id="ce7c3472-bef3-4961-99cb-7d0f560bc7ee" name="Changes" comment="a">
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/laba5_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/postgresql_42_5_4.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Support.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/file/SigmaComparator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/laba5.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/laba51.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/laba5.iml" beforeDir="false" afterPath="$PROJECT_DIR$/laba5.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DataBase/MainDataBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataBase/MainDataBase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DataBase/SetCollection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataBase/SetCollection.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DataBase/Users.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataBase/Users.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/base/Coordinates.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/base/Coordinates.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/base/Vehicle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/base/Vehicle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/commands/RemoveById.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/commands/RemoveById.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/commands/Save.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/commands/Save.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/commands/Show.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/commands/Show.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/commands/UpdateId.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/commands/UpdateId.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/file/Collection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/file/Collection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/file/CommandLine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/file/CommandLine.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,10 +55,19 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Lab7" />
-    <property name="project.structure.last.edited" value="Project" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../SigMa" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Silve\IdeaProjects\SigMaNaNaNaNa\src" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="commands" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -69,6 +93,14 @@
       <updated>1685547111520</updated>
       <workItem from="1685547112517" duration="3793000" />
     </task>
+    <task id="LOCAL-00001" summary="a">
+      <created>1685552460905</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1685552460905</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -84,5 +116,31 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="a" />
+    <option name="LAST_COMMIT_MESSAGE" value="a" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/commands/RemoveById.java</url>
+          <line>16</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/file/Collection.java</url>
+          <line>93</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/commands/Save.java</url>
+          <line>22</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

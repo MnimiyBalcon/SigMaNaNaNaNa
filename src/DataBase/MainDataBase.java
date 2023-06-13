@@ -14,13 +14,22 @@ public class MainDataBase {
     public static String username ="";
 
     //Класс Connection в Java используется для установления соединения с базами данных.
+
     /**
      * Метод, позволяющий установить соединение
      */
-    private static void getConnection() {
+    public static void getConnection() {
+
+        String user = "postgres";
+        String password = "13131";
+        String url = "jdbc:postgresql://localhost:5432/test_db";
+
+        /*String user = "s368949";
+        String password = "W4B3WDUkXkwHmyuu";
+        String url = "jdbc:postgresql://db:5432/studs";*/
 
         try {
-            connection = DriverManager.getConnection("jdbc:postgresql://db:5432/studs", "s368949", "W4B3WDUkXkwHmyuu");
+            connection = DriverManager.getConnection(url, user, password);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

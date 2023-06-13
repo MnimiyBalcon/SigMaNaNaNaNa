@@ -1,5 +1,6 @@
 package commands;
 
+import DataBase.MainDataBase;
 import base.Vehicle;
 import file.Collection;
 
@@ -20,8 +21,11 @@ public class UpdateId implements CommandBase {
         int x = getId(scanner);
         for (Vehicle vehicle : Collection.getInstance().getAll()) {
             if (x == vehicle.getId()) {
-                Collection.getInstance().updateId(x);
-                return "Элемент изменён";
+                if (vehicle.getCreator().equals(MainDataBase.username)){
+                    Collection.getInstance().updateId(x);
+                    return "Элемент изменён";
+                }
+                else return "Ошибка! Этот элемент принадлежит другому пользователю!";
             }
         }
         return "Нет такого id!";

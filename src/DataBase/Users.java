@@ -12,13 +12,14 @@ import java.util.Scanner;
 public class Users {
     Scanner scanner = new Scanner(System.in);
     public String auth() throws SQLException, NoSuchAlgorithmException {
+
+        MainDataBase.getConnection();
         Connection connection = MainDataBase.connection;
 
         String salt = "5H'k@%!((n]";
         Statement stat = connection.createStatement();
         System.out.println("Авторизация пользователя:");
-        String message = "Введите 'login' для входа в учётную запись или 'register' для регистрации нового пользователя.\n" +
-                "Для просмотра базы данных в качестве гостя введите 'guest'";
+        String message = "Введите 'login' для входа в учётную запись или 'register' для регистрации нового пользователя.";
         System.out.println(message);
         label:
         while (scanner.hasNext()) {                                                                                      //авторизация
@@ -33,7 +34,7 @@ public class Users {
                         System.out.println("Введите пароль учётной записи"); //ввод пароля login
 
                         line1 = scanner.nextLine();
-                        MessageDigest md = MessageDigest.getInstance("SHA-512");
+                        MessageDigest md = MessageDigest.getInstance("MD5");
                         String password = Arrays.toString(md.digest((line1 + salt).getBytes(StandardCharsets.UTF_8)));
 
                         if (password.equals(resultSet.getString(2))) {
@@ -80,8 +81,6 @@ public class Users {
                     }
                     break;
                 }
-                case "guest":                                                  //guest
-                    break label;
                 case "exit":                                                   //exit
                     System.exit(0);
             }
